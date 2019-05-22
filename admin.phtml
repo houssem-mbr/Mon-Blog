@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Administration</title>
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+  </head>
+  <body>
+    <!-- En-tête commune de l'application -->
+    <header class="container-fluid bg-dark">
+      <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin.php"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto w-100 d-flex justify-content-around align-items-center text-center">
+            <li class="nav-item btn btn-dark active">
+              <a class="nav-link" href="admin.php"><b>Acceuil</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-dark" href="addPosts.php"><b>Ajouter article</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-dark" href="category.php"><b>Ajouter catégorie</b></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link btn btn-dark" href="addusers.php"><b>Ajouter un admin</b></span></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link btn btn-dark" href="index.php" target="blank"><b>Vue visiteur</b></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-warning text-white" href="login.php"><b>Déconnexion</b></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <h1 class="bg-dark text-white pt-3 pb-3 pl-2 rounded-pill text-center "><b><i class="fas fa-user-edit"></i> Espace Admin</b></h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <?php foreach ($users as $value): ?>
+    <h2  class="font-weight-bolder shadow-lg p-3 mb-5 bg-white rounded-pill text-dark col-md-6"><i class="fas fa-user-cog"></i> Bienvenue <span style="text-decoration: underline;"><b><?= $value->firstname." ".$value->lastname ?></b></span></h2>
+    <?php endforeach ?>
+    </div>
+    <br>
+    <div class="container-fluid" >
+      <br>
+      <div style="background-color:#00000080 " class="container rounded">
+        <h3 class="bg-dark text-white pt-3 pb-3 pl-2 rounded-pill text-center col-md-4"><b><i class="fas fa-feather-alt"></i> Ajouter un article</b></h3>
+        <?php include('addPosts.php') ?>
+      </div>
+      <hr>
+      <div class="container">
+        <h3 class="bg-dark text-white pt-3 pb-3 pl-2 rounded-pill text-center col-md-3"><b><i class="fas fa-file-alt"></i> Les articles:</b></h3>
+        <?php foreach ($nombre as $value): ?>
+          <p class="h4 bg-dark text-white pt-3 pb-3 pl-2 rounded-pill text-center col-md-3" style="color: white"><b>Vous avez <span class="text-warning"> <?php echo $value->nombre ; ?></span> articles</b></p>
+        <?php endforeach ?>
+        
+        <br>
+        <div class="text-center">
+          <p class="text-danger"><b>Choisir par catégorie</b></p>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <?php foreach ($category as $value): ?>
+            <a href="getcategoryadmin.php?id=<?php echo $value->id?>"><button class="btn btn-danger ml-2 mb-2"><b><?php echo $value->name; ?></b></button></a>
+            <?php endforeach; ?>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="container">
+          <div class="row  ">
+            <?php foreach ($articles as $article): ?>
+            
+            <div style="background-color: #00000080" class="shadow-lg p-3 mb-5  rounded col-md-4" style="width: 18rem;">
+              <img style="width: 300px;height: 250px" class="img-thumbnail" src="<?= $article->image?>" class="card-img-top">
+              <div class="card-body">
+                <h4 class="card-title"><b><i class="fas fa-newspaper"></i> <?= $article->title?></b></h4>
+                <?php foreach ($user as $value): ?>
+                <p  style="color: grey"><b><i class="fas fa-pen-alt"></i> Publié par:</b> <span style="color: #55AA00FF"><b><?= $value->firstname.' '.$value->lastname ?></b></span></p>
+                <?php  endforeach; ?>
+                <time><span style="color: grey"><i class="fas fa-clock"></i> Le </span><?= $article->date ?></time>
+                <p class="card-text"><b><span style="color: #A0A0A0FF"><i class="fas fa-bookmark"></i> Catégorie:</span> <span style="color: #55AA00FF"><?= $article->name ?></span></b></p>
+                <div class="text-center">
+                  <a href="update.php?id=<?= $article->id ?>" class="btn btn-primary" ><b>Gérer les articles</b></a>
+                  <a class='btn btn-danger' href="modifierArticle.php?id=<?= $article->id ?>" ><b><i class="fas fa-edit"></i> Modifier </b></a>
+                </div>
+              </div>
+            </div>
+            <?php endforeach ?>
+          </div>
+        </div>
+        <hr>
+        <div class="text-right mr-5">
+          <a  id="tp" style="font-size: 3em;color: #FF0E00FF; cursor: pointer;" ><i class="fas fa-arrow-circle-up"></i></a>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("#tp").on('click', function(event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.header !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+        // Store hash
+        var header = this.header;
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+        scrollTop: $('header').offset().top
+        }, 2000, function(){
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.header = header;
+        });
+        } // End if
+        });
+        });
+        </script>XB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </body>
+    </html>

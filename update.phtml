@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Modification <?= $article->title ?></title>
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+  </head>
+  <body>
+    <!-- En-tête commune de l'application -->
+    <header class="container-fluid bg-dark">
+      <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="admin.php"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto w-100 d-flex justify-content-around align-items-center text-center">
+            <li class="nav-item btn btn-dark active">
+              <a class="nav-link" href="admin.php"><b>Acceuil</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-dark" href="addPosts.php"><b>Ajouter article</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-dark" href="category.php"><b>Ajouter catégorie</b></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link btn btn-dark" href="addusers.php"><b>Ajouter un admin</b></span></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link btn btn-dark" href="index.php" target="blank"><b>Vue visiteur</b></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-warning text-white" href="login.php"><b>Déconnexion</b></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="row mt-4 text-right mb-5 mr-3">
+      <div class="col-md-12">
+        <a href="admin.php" class="btn btn-info"><b><i class="fas fa-hand-point-left"></i> Retour au administraion</b></a>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="bg-dark text-white pt-3 pb-3 pl-2 rounded-pill text-center "><b><i class="fas fa-user-edit"></i> Espace Admin</b></h1>
+    </div>
+    
+    <br><br>
+    <div style="background-color: #E0E0E0FF" class="container shadow p-3 mb-5 rounded pl-4 pr-2" >
+      <div class="row">
+        <h2 ><b><?= $article->title ?></b></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <img style="border: 2px solid #13B3EBFF" class="w-100 rounded"  src="<?= $article->image ?>">
+        </div>
+        <div class="col-md-6">
+          <p  style="color: grey"><b><i class="fas fa-pen-alt"></i> Publié par:</b> <span style="color: #55AA00FF"><b><?= $user->firstname.' '.$user->lastname ?></b></span></p>
+          <p style="color: grey"><b><i class="fas fa-clock"></i> Publié le:</b> <time style="color: #55AA00FF"><?= $article->date ?></time></p>
+          <p style="color: grey"><b><i class="fas fa-bookmark"></i> Catégorie: <span style="color: #55AA00FF"><?= $article->name ?></span></b></p>
+          <a class='btn btn-danger' href="modifierArticle.php?id=<?= $article->id ?>" ><b><i class="fas fa-edit"></i> Modifier </b></a>
+      <a onclick="return confirm('Vous ètes sure de suppression de cette article ?')" class="btn btn-primary" href="remove.php?id=<?= $article->id ?>"><b><i class="fas fa-trash"></i> Supprimer</b></a>
+        </div>
+        <div class=" divider"></div>
+        <br>
+        <div class="col-md-12  ">
+          <p style="color: #A6585DFF"><b><i class="fas fa-scroll"></i> Description:</b></p>
+          <p class="row text-dark"><?= $article->content ?>  </p>
+        </div>
+      </div>
+      <hr>
+      <div class="col-md-12  ">
+            <p style="color: #A6585DFF"><b><i class="fas fa-video"></i> Vidéo à propos: <?= $article->title ?> </b></p>
+            <iframe style="border:3px solid white " class="w-100 rounded" width="560" height="500" src="<?php echo $article->video ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+    </div>
+    <hr>
+    <div style="background-color: #FCFCFCFD" class="container shadow p-3 mb-5 rounded pl-4 pr-2 ">
+      <h3 style="color:#20B9DEFF"><b><i class="fas fa-comments"></i> Commentaires:</b> </h3>
+      <?php foreach ($comments as $com): ?>
+      <a onclick="return confirm('Vous ètes sure de suppression de cette commentaire ?')" class="btn btn-danger btn-sm float-right" href="adminRemoveCom.php?id=<?=$com->id?>&article=<?=$article->id?>"><i class="fas fa-trash-alt"></i></a>
+      <h4 style="color: #F75107FF"><i class="fas fa-user-edit"></i> <?= $com->author ?></h4>
+      <time>Le <?= $com->date ?></time>
+      <p><i class="fas fa-quote-right"></i> <?= $com->comment ?></p>
+      <?php endforeach; ?>
+    </div>
+    <hr>
+    <div class="row mt-4 text-center mb-5">
+      <div class="col-md-12">
+        <a href="admin.php" class="btn btn-info"><b><i class="fas fa-hand-point-left"></i> Retour au administraion</b></a>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

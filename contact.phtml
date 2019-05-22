@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Contactez-moi</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <header class="container-fluid bg-dark">
+      <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto w-100 d-flex justify-content-around align-items-center text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Acceuil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="posts.php"><i class="fas fa-book"></i> Tous les articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.phtml"><i class="fas fa-phone"></i> Contactez-moi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="propos.php"><i class="fas fa-user-tie"></i> À propos de moi</a>
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php"><i class="fas fa-user-cog"></i> Administration</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+      <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4 ">
+        <form class="form-inline " action="resultat.php" method="POST">
+          <input class="form-control col-md-9" type="search" name="title" placeholder="Search" aria-label="Search">
+          <button class="btn btn-info col-md-3 pt-2 pb-2" type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div class="divide"></div>
+      <div class="heading">
+        <h2>CONTACTEZ-MOI</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form  id="contact-form" method="post" action="contact.php"role="form">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="firstname"><b>Prénom</b><span class="bleu"> *</span></label>
+                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Votre prénom" value="">
+                <p class="comments"></p>
+              </div>
+              <div class="col-md-6">
+                <label for="name"><b>Nom</b><span class="bleu"> *</span></label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" value="">
+                <p class="comments"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="email"><b>Email</b><span class="bleu"> *</span></label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="Votre email" value="">
+                <p class="comments"></p>
+              </div>
+              <div class="col-md-6">
+                <label for="phone"><b>Téléphone</b></label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Votre téléphone" value="">
+                <p class="comments"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="message"><b>Message</b><span class="bleu"> *</span></label>
+                <textarea id="message" name="message" class="form-control" placeholder="Votre message" rows="4"></textarea>
+                <p class="comments"></p>
+              </div>
+            </div>
+            <div class="row">
+              <p class="bleu"><strong>* Ces informations sont requises</strong></p>
+            </div>
+            <div class="row">
+              <input type="submit" class="btn1 btn btn-warning col-md-12" value="Envoyer">
+            </div>
+            <div class="row thx">
+              <div class="col-md-2"></div> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      <p class="h4 text-center bg-light rounded p-2 m-4"><i class="fas fa-hand-point-right"></i> Pour envoyer une demande pour rejoindre notre équipe <b><a href="requestadmin.php" target="blank"><span  id="request" style="color:green; cursor: pointer;">cliquez-ici</span></b></p></a>
+     <div class="row mt-4 text-center mb-5">
+    <div class="col-md-12">
+      <a href="index.php" class="btn btn-info "><b><i class="fas fa-hand-point-left"></i> Acceuil</b></a>
+    </div>
+  </div>
+    <div class="container-fluid footer mt-5">
+      <div class="row licence">
+        <div class="col-md-12">
+          <h3><i class="far fa-copyright"></i><b>Blog Houssem Eddine Mabrouk 2019</b></h3>
+          <div class="fr">
+            <div style="display: inline-block;">
+              <input class="col-md-6 fEmail" name='Email' placeholder='Entrer ton Email'/>
+              <a href="#" class="subS">S'inscrire</a>
+            </div>
+          </div>
+        </div>
+        <div class="soc col-md-12">
+          <ul>
+            <li class="soc1"><a href="https://www.linkedin.com/in/houssem-eddine-mabrouk-619456138/"target="_blank"></a></li>
+            <li class="soc2"><a href="https://www.facebook.com/houssem.sahiliano"target="_blank"></a></li>
+            <li class="soc3"><a href="https://twitter.com/twitter"target="_blank"></a></li>
+            <li class="soc4"><a href="https://www.instagram.com/houssem_mbrr"target="_blank"></a></li>
+            <li class="soc5"><a href="https://3wa.fr/"target="_blank"></a></li>
+            <li class="soc6"><a href="https://www.youtube.com/channel/UCOTiomQKUi-Oc1IPnhS0woQ?view_as=subscriber"target="_blank"></a></li>
+            <li class="soc7"><a href="mailto:houssemeddinemabrouk@gmail.com"target="_blank"></a></li>
+            <li class="soc8"><a href="https://dribbble.com/Houssem-mbr"target="_blank"></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-right mr-5">
+        <a  id="tp" style="font-size: 3em;color: #FF0E00FF; cursor: pointer;" ><i class="fas fa-arrow-circle-up"></i></a>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("#tp").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.header !== "") {
+    // Prevent default anchor click behavior
+    event.preventDefault();
+    // Store hash
+    var header = this.header;
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+    scrollTop: $('header').offset().top
+    }, 2000, function(){
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    window.location.header = header;
+    });
+    } // End if
+    });
+    });
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Créer un bouton de partage personnalisé pour Facebook - karac blog" />
+    <meta property="og:image" content="https://karac.ch/storage/articles/August2017/pJBVDQrp5BpNriveaDZg.jpg" />
+    <meta property="og:description" content="Dans ce tutoriel, nous allons voir comment ajouter à votre site un joli bouton de partage personnalisé pour Facebook (le fonctionnement est le même pour les autres réseaux sociaux)." />
+    <meta property="og:url" content="https://karac.ch/blog/bouton_partage_personnalise">
+    <title>Â propos</title>
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+  </head>
+  <body>
+    <?php include('layout/navbar.phtml'); ?>
+     <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4 ">
+        <form class="form-inline " action="resultat.php" method="POST">
+          <input class="form-control col-md-9" type="search" name="title" placeholder="Search" aria-label="Search">
+          <button class="btn btn-info col-md-3 pt-2 pb-2" type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div class="container text-center rounded-circle bg-info">
+      <h1 class="pt-2 pb-3" style="color: white"><b><i class="fas fa-users"></i> Â Propos de moi</b> </h1>
+    </div>
+    <br><br>
+    <div class="container-fluid">
+      <div style="max-width:1900px; margin:auto;" class="row">
+        <div class="col-md-9 d-inline rounded" style="background-color: #00000080">
+          <div class="container">
+            <div >
+                <img src="images/photo1.jpg " class="w-100 border border-info rounded-circle mb-2 mt-2" style="height: 600px">
+                <p style="font-size: 1.5em;color: white; text-height: 1.8em">
+                  <span style="text-decoration: underline;color:#FF6A00FF">HOUSSEM EDDINE MABROUK INGÉNIEUR HYDRAULIQUE, DÉVÉLOPPEUR & INTÉGRATEUR WEB: </span><br>
+                Je m'appelle Houssem Eddine Mabrouk, j'ai 28 ans. Je suis un Ingénieur en Génie Hydraulique et un Développeur Web Full-Stack. Grâce à ma formation réalisée à 3W Academy de Tunis, j’ai développé des connaissances en Intégration et Développement WEB qui m’ont conforté dans ma volonté de m’orienter dans le secteur du développement des applications web.
+
+                Je suis aussi un ingénieur en Hydraulique et aménagement j'ai eu mon diplome en juillet 2017 avec mention trés bien de la part de l'école supérieure d'ingénieurs de Mdjez El Beb suite à un stage de fin d'étude au sein de l'établissement Tunisienne d'avtivités pétrolières .
+                </p>
+                <ul>
+                  <li class="text-info"><b><i class="fas fa-phone"></i> Numéro de télephone:<span style="color:#DC6864FF"> (+216)52368728/(+216)25268728</span></li></b>
+                  <hr>
+                  <li class="text-info"> <b><i class="fas fa-envelope"></i> Email: <a href="mailto:houssemeddinemabrouk@gmail.com">houssemeddinemabrouk@gmail.com</a></b></li>
+                  <hr>
+                  <li class="text-info"><b><i class="fas fa-building"></i> Locale: <a href="https://3wa.fr/">3W Academy Centre urbain nord-Ariana-Tunis</a></b></li>
+                </ul>
+              </div>
+              <a href="https://houss-mbr.000webhostapp.com/" target="blank"><button class="btn btn-success"><b><i class="fas fa-hand-point-down"></i> Voir mon portfolio</b></button></a>
+              <hr>
+              <div class="">
+                <a href="https://houss-mbr.000webhostapp.com/" target="blank">
+                  <div  id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img  style="height: 500px" src="images/port.JPG" class="d-block w-100 img-thumbnail" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img  style="height: 500px" src="images/s11.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img  style="height: 500px" src="images/s12.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img  style="height: 500px" src="images/10.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img  style="height: 500px" src="images/cov.jpg" class="d-block w-100 img-thumbnail" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img  style="height: 500px" src="images/h1.png" class="d-block w-100 img-thumbnail" alt="...">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div></a>
+                </div>
+          </div>
+        </div>
+          <?php include('layout/widget.phtml') ?>
+            </div>
+          </div>
+          <footer>
+            <div class="container-fluid footer mt-2">
+              <div class="row licence">
+                <div class="col-md-12">
+                  <h3><i class="far fa-copyright"></i><b>Blog Houssem Eddine Mabrouk 2019</b></h3>
+                  <div class="fr">
+                    <div style="display: inline-block;">
+                      <input class="col-md-6 fEmail" name='Email' placeholder='Entrer ton Email'/>
+                      <a href="#" class="subS">S'inscrire</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="soc col-md-12">
+                  <ul>
+                    <li class="soc1"><a href="https://www.linkedin.com/in/houssem-eddine-mabrouk-619456138/"target="_blank"></a></li>
+                    <li class="soc2"><a href="https://www.facebook.com/houssem.sahiliano"target="_blank"></a></li>
+                    <li class="soc3"><a href="https://twitter.com/twitter"target="_blank"></a></li>
+                    <li class="soc4"><a href="https://www.instagram.com/houssem_mbrr"target="_blank"></a></li>
+                    <li class="soc5"><a href="https://3wa.fr/"target="_blank"></a></li>
+                    <li class="soc6"><a href="https://www.youtube.com/channel/UCOTiomQKUi-Oc1IPnhS0woQ?view_as=subscriber"target="_blank"></a></li>
+                    <li class="soc7"><a href="mailto:houssemeddinemabrouk@gmail.com"target="_blank"></a></li>
+                    <li class="soc8"><a href="https://dribbble.com/Houssem-mbr"target="_blank"></a></li>
+                  </ul>
+                </div>
+              </div>
+            <?php include('layout/footer.phtml') ?>
+        </body>
+      </html>

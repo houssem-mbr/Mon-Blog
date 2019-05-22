@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 	<title>Mob blog Houssem</title>
+ 	<link rel="stylesheet" href="../bootstrap.min.css" >
+ 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ 	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+ 	<link rel="stylesheet" type="text/css" href="blog.css">
+ </head>
+ <body class="container-fluid">
+ 	<h1>test</h1>
+ 	<div class="row">
+ 		<div style="border: 4px solid blue; height: 300px" class="col-md-8" ></div>
+ 		<div style="border: 4px solid green; height: 300px" class="col-md-3" ></div>
+ 	</div>
+
+<!-- ajax pour comment-->
+<?php 
+$array = array ("author" => "","comment" => "","authorerr" => "" ,"commenterr" =>"","isSuccess" => false);
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+	header('Location: index.php');
+}
+else{
+	extract($_GET);//Importe les variables dans la table des symboles
+	$id = strip_tags($id);// tente de retourner la chaîne str après avoir supprimé tous les octets nuls, toutes les balises PHP et HTML du code.
+
+	require_once('config/fonction.php'); 
+	if (!empty($_POST)) {
+		extract($_POST);
+		$array["author"]= verifyInput($_POST["author"]);//au lieu de $firstname on fait $array["firstname"] value de firstname
+		$array["comment"] = verifyInput($_POST["comment"]);
+		$array["isSuccess"] = true;
+		$errors = array();
+		if (empty($array["author"])) {
+			$array["authorerr"] = "Entrer un pseudo !!";
+			$array["isSuccess"] = false;
+		}
+		if (empty($array["comment"])) {
+			$array["commenterr"] = "Entrer un commentaire stp !!";
+			$array["isSuccess"] = false;
+		}
+		if ($array["isSuccess"]) {
+			$comment= addComment($id, $author, $comment);
+			$success = 'Votre commentaire a été publié';
+			unset($author);//vider les champs aprés l'envoi 
+			unset($comment);
+		}
+		
+	}
+	echo json_encode($array);
+	$article = getArticle($id);
+	$comments=  getComments($id);
+	$users=  getArticleAdmin($id);
+	$nombre = getCommentsNombre($id);
+	$random = getArticleRand();
+	$user=  getuser();
+}
+include('article.phtml');
+?>
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+ </body>
+ </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mob blog Houssem</title>
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/article.css">
+  </head>
+  <body>
+    <?php include('layout/navbar.phtml'); ?>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4 ">
+        <form class="form-inline " action="resultat.php" method="POST">
+          <input class="form-control col-md-9" type="search" name="title" placeholder="Search" aria-label="Search">
+          <button class="btn btn-info col-md-3 pt-2 pb-2" type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div class="row mt-4 text-right mb-5 mr-5">
+      <div class="col-md-12">
+        <a href="index.php" class="btn btn-info mb-3"><b><i class="fas fa-hand-point-left"></i> Acceuil</b></a>
+      </div>
+    </div>
+    <p class="h2 text-danger pl-3">Résultat de recherche</p>
+    <hr>
+    <div class="container-fluid">
+      <div style="max-width:1900px; margin:auto;" class="row">
+        <div class="col-md-9">
+          <div class="container">
+            <div class="row text-center ">
+              <?php foreach ($recherche as $rech): ?>
+              <div style="background-color: #00000080" class="shadow-lg p-3 mb-5  rounded col-md-4" style="width: 18rem;">
+                <img style="width: 300px;height: 200px" class="img-thumbnail" src="<?= $rech->image?>" class="card-img-top">
+                <div class="card-body">
+                  <h4 class="card-title"><b><i class="fas fa-newspaper"></i> <?= $rech->title?></b></h4>
+                  <?php foreach ($user as $value): ?>
+                  <p  style="color: grey"><b><i class="fas fa-pen-alt"></i> Publié par:</b> <span style="color: #55AA00FF"><b><?= $value->firstname.' '.$value->lastname ?></b></span></p>
+                  <?php  endforeach; ?>
+                  <time><span style="color: grey"><i class="fas fa-clock"></i> Le </span><?= $rech->date ?></time>
+                  <p class="card-text"><b><span style="color: #A0A0A0FF"><i class="fas fa-bookmark"></i> Catégorie:</span> <span style="color: #55AA00FF"><?= $rech->name ?></span></b></p>
+                  <a href="article.php?id=<?= $rech->id ?>" class="btn btn-primary" ><b>Voir l'article</b></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/blog/article.php?id=<?= $rech->id ?>" class="sharebox btn btn-info" target="blank">
+                    <span class="fb-icon"></span><b><i class="fab fa-facebook"></b></i> partager</b></a>
+                  </div>
+                </div>
+                <?php endforeach ?>
+              </div>
+            </div>
+          </div>
+          <?php include('layout/widget.phtml') ?>
+        </div>
+      </div>
+      <div class="row mt-4 text-center mb-5 mr-5">
+        <div class="col-md-12">
+          <a href="index.php" class="btn btn-info mb-3"><b><i class="fas fa-hand-point-left"></i> Acceuil</b></a>
+        </div>
+      </div>
+      <footer>
+        <div class="container-fluid footer ">
+          <div class="row licence">
+            <div class="col-md-12">
+              <h3><i class="far fa-copyright"></i><b>Blog Houssem Eddine Mabrouk 2019</b></h3>
+              <div class="fr">
+                <div style="display: inline-block;">
+                  <input class="col-md-6 fEmail" name='Email' placeholder='Entrer ton Email'/>
+                  <a href="#" class="subS">S'inscrire</a>
+                </div>
+              </div>
+            </div>
+            <div class="soc col-md-12">
+              <ul>
+                <li class="soc1"><a href="https://www.linkedin.com/in/houssem-eddine-mabrouk-619456138/"target="_blank"></a></li>
+                <li class="soc2"><a href="https://www.facebook.com/houssem.sahiliano"target="_blank"></a></li>
+                <li class="soc3"><a href="https://twitter.com/twitter"target="_blank"></a></li>
+                <li class="soc4"><a href="https://www.instagram.com/houssem_mbrr"target="_blank"></a></li>
+                <li class="soc5"><a href="https://3wa.fr/"target="_blank"></a></li>
+                <li class="soc6"><a href="https://www.youtube.com/channel/UCOTiomQKUi-Oc1IPnhS0woQ?view_as=subscriber"target="_blank"></a></li>
+                <li class="soc7"><a href="mailto:houssemeddinemabrouk@gmail.com"target="_blank"></a></li>
+                <li class="soc8"><a href="https://dribbble.com/Houssem-mbr"target="_blank"></a></li>
+              </ul>
+            </div>
+          </div>
+          <?php include('layout/footer.phtml') ?>
+        </body>
+      </html>

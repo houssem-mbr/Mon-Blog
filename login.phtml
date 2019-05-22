@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Connexion</title>
+	<link rel="stylesheet" href="bootstrap.min.css" >
+ 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ 	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+ 	<link rel="stylesheet" type="text/css" href="css/article.css">
+</head>
+<body>
+  <!-- En-tête commune de l'application -->
+       <?php include('layout/navbar.phtml'); ?>
+   	<h2 class="text-center"><i class="fas fa-users-cog"></i> Bienvenue sur votre espace administration</h2>
+		<p class="text-center text-danger"><b><i class="fas fa-exclamation-circle"></i> Espace reservé pour l'administrateur de Blog</b></p>
+		<hr>
+   	<h3 class="text-center">Connectez-vous</h3>
+   		<br><br>
+ 	<div class="container contenu">
+ 		<div class="container-fluid">
+ 	
+ 		<div class=" pt-3 pb-3 pr-3 pl-3">
+ 			<?php
+ 			if (!empty($errors)):?>
+
+				<?php foreach ($errors as $error): ?>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<div class="alert alert-danger"><?= $error ?></div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+ 	<?php endif; ?>
+ 	<div class="row">
+ 		<div class="col-md-3"></div>
+ 		<fieldset class=" col-md-6 pt-3 pb-3" >
+ 			<legend class="text-info"><b><i class="fab fa-connectdevelop"></i> Connexion</b></legend>
+ 			<form action="login.php" method="POST" >
+ 				<p><label for="email"><b>Votre adresse email</b> </label><br>
+ 				<input type="email" name="email" id="email" value="<?php if(isset($email)) echo $email ?>" class="form-control"></p>
+ 				<p><label for="password"><b>Votre mot de passe</b> </label><br>
+ 				<input type="password" name="password" id="password" value="<?php if(isset($password)) echo $password ?>" class="form-control"></p>
+				<br>
+ 				<div class="row">
+					<div class="col-md-4"></div>
+ 				<button type="submit" class="col-md-3 btn btn-primary mb-2 mr-1 ml-1"><b>Connexion</b></button>
+               </div>
+ 			</form>
+ 		</fieldset>	
+ 	</div>
+	</div>
+ 	</div>
+ 	</div>
+
+<footer>
+      <div class="container-fluid footer mt-2">
+        <div class="row licence">
+          <div class="col-md-12">
+            <h3><i class="far fa-copyright"></i><b>Blog Houssem Eddine Mabrouk 2019</b></h3>
+            <div class="fr">
+              <div style="display: inline-block;">
+                <input class="col-md-6 fEmail" name='Email' placeholder='Entrer ton Email'/>
+                <a href="#" class="subS">S'inscrire</a>
+              </div>
+            </div>
+          </div>
+          <div class="soc col-md-12">
+            <ul>
+              <li class="soc1"><a href="https://www.linkedin.com/in/houssem-eddine-mabrouk-619456138/"target="_blank"></a></li>
+              <li class="soc2"><a href="https://www.facebook.com/houssem.sahiliano"target="_blank"></a></li>
+              <li class="soc3"><a href="https://twitter.com/twitter"target="_blank"></a></li>
+              <li class="soc4"><a href="https://www.instagram.com/houssem_mbrr"target="_blank"></a></li>
+              <li class="soc5"><a href="https://3wa.fr/"target="_blank"></a></li>
+              <li class="soc6"><a href="https://www.youtube.com/channel/UCOTiomQKUi-Oc1IPnhS0woQ?view_as=subscriber"target="_blank"></a></li>
+              <li class="soc7"><a href="mailto:houssemeddinemabrouk@gmail.com"target="_blank"></a></li>
+              <li class="soc8"><a href="https://dribbble.com/Houssem-mbr"target="_blank"></a></li>
+            </ul>
+          </div>
+        </div>
+        <?php include('layout/footer.phtml') ?>
+</body>
+
+</html>

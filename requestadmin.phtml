@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Demande d'admission</title>
+        <link rel="stylesheet" href="bootstrap.min.css" >
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="">
+    </head>
+    <body class="bg-info">
+        <main>
+            <hr>
+            <section class="container bg-light shadow-lg p-3 mb-5 rounded">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                <p class="h1 text-center text-info">Demande d'ajout en admission</p>
+                </div>
+                <!-- Formulaire d'ajout de tâche -->
+                <?php if (isset($success))
+                echo "<p style='color:green; font-size:1.3em;'><b>".$success."<b/></p>";
+                if (!empty($errors)):?>
+                <?php foreach ($errors as $error): ?>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="alert alert-danger"><?= $error ?></div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+                <?php endif; ?>
+                
+                <form class="standard-form label-left" action="requestadmin.php" method="POST">
+                    <fieldset>
+                        <legend class="text-primary">Disposer votre demande ici ! </legend>
+                        <ul style="list-style: none;">
+                            <li>
+                                <label class="text-info" for="nom"><b>Nom :</b></label>
+                                <input class="form-control" id="nom" name="nom" type="text" placeholder="Votre nom">
+                            </li>
+                            <li>
+                                <label class="text-info" for="prenom"><b>Prénom :</b></label>
+                                <input class="form-control" id="prenon" name="prenom" type="text" placeholder="Votre prénom">
+                            </li>
+                            <li>
+                                <label class="text-info" for="email"><b>Votre email :</b></label>
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Votre email ">
+                            </li>
+                            <li>
+                                <label class="text-info" for="demande"><b>Votre demande :</b></label>
+                                <textarea class="form-control" id="demande" name="demande" rows="8" placeholder="Votre demande détaillé"></textarea>
+                            </li>
+                            <div class="row mt-3">
+                                <div class="col-md-5"></div>
+                            <li>
+                                <button class="btn btn-success" type="submit" value="Ajouter" title="Envoyer une demande">Envoyer</button>
+                                <button class="btn btn-danger" type="reset" value="Annuler">Annuler</button>
+
+                            </li>
+                        </div>
+                        </ul>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </body>
+</html>

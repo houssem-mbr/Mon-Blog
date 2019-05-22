@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Ajouter un article</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="blog.css">
+	</head>
+	<body>
+		<div class="col-md-12 text-right mt-3">
+			<a href="admin.php" class="btn btn-info"><b><i class="fas fa-hand-point-left"></i> Retour à l'acceuil</b></a>
+		</div>
+		<div class="container contenu mt-3">
+			<div class="container-fluid">
+				
+				<div class=" pt-3 pb-3 pr-3 pl-3">
+					<?php if (isset($success))
+						echo "<p style='color:green; font-size:1.3em;'><b>".$success."<b/></p>";
+					if (!empty($errors)):?>
+					<?php foreach ($errors as $error): ?>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<div class="alert alert-danger"><?= $error ?></div>
+						</div>
+					</div>
+					<?php endforeach; ?>
+					
+					<?php endif; ?>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<fieldset class="col-md-6 pt-3 pb-3" >
+							<legend class="text-info"><b><i class="fas fa-sticky-note"></i> Nouveau article</b></legend>
+							<form action="admin.php" method="POST" >
+								<p><label style="color: #A0A0A0FF" for="title"><b>Titre:</b> </label><br>
+								<input type="text" name="title" id="title" value="<?php if(isset($title)) echo $title ?>" class="form-control"></p>
+								<p><label style="color: #A0A0A0FF" for="content"><b>Corps de l'article:</b> </label><br>
+							<textarea name="content" id="content" cols="30" rows="10" class="form-control"><?php if(isset($content)) echo $content ?></textarea></p>
+							<p><label style="color: #A0A0A0FF" for="image"><b>Lien de l'image:</b> </label><br>
+							<input type="text" name="image" id="image" value="<?php if(isset($image)) echo $image ?>" class="form-control"></p>
+							<p><label style="color: #A0A0A0FF" for="video"><b>Lien youtube de vidéo:</b> </label><br>
+							<input type="video" name="video" id="video" value="<?php if(isset($video)) echo $video ?>" class="form-control"></p>
+							<a style="color:green" href="category.php"><i class="fas fa-plus-circle"></i></a>
+							<select name="cat">
+								<?php foreach ($category as $value): ?>
+								<option value="<?php echo $value->id ?>"><?php echo $value->name; ?></option>
+								<?php endforeach; ?>
+								
+							</select>
+							<select name="use">
+								<?php foreach ($user as $value): ?>
+								<option value="<?php echo $value->id ?>"><?php echo $value->firstname; ?></option>
+								<?php  endforeach; ?>
+								
+							</select>
+							<br><br>
+							<div class="row">
+								<div class="col-md-3"></div>
+								<button type="submit" class="col-md-2 btn btn-success mb-2 mr-1 ml-1"><b>Publier</b></button>
+								<div class="col-md-2"></div>
+								<button id="reset" class="col-md-2 btn btn-danger mb-2 mr-1 ml-1" type="reset"><b>Annuler</b></button>
+							</div>
+						</div>
+					</form>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
